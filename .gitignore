@@ -7,6 +7,7 @@ package-lock.json
 yarn.lock
 cypress
 e2e
+.github
 
 # dependencies
 /node_modules
