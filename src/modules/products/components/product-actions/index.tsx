@@ -126,7 +126,7 @@ export default function ProductActions({
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <div>
+        {/* <div>
           {product.variants.length > 1 && (
             <div className="flex flex-col gap-y-4">
               {(product.options || []).map((option) => {
@@ -145,7 +145,7 @@ export default function ProductActions({
               <Divider />
             </div>
           )}
-        </div>
+        </div> */}
 
         <ProductPrice product={product} variant={variant} region={region} />
 
@@ -163,7 +163,7 @@ export default function ProductActions({
             ? "Out of stock"
             : "Add to cart"}
         </Button>
-        <MobileActions
+        {/* <MobileActions
           product={product}
           variant={variant}
           region={region}
@@ -173,7 +173,7 @@ export default function ProductActions({
           handleAddToCart={handleAddToCart}
           isAdding={isAdding}
           show={!inView}
-        />
+        /> */}
       </div>
     </>
   )

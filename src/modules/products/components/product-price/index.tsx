@@ -29,25 +29,23 @@ export default function ProductPrice({
   }
 
   return (
-    <div className="flex flex-col text-ui-fg-base">
+    <div className="flex flex-col text-ui-fg-base gap-1">
       <span
-        className={clx("text-xl-semi", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
+        className={clx("text-xl", {
+          "text-background font-semibold": selectedPrice.price_type === "sale",
         })}
       >
-        {!variant && "From "}
         {selectedPrice.calculated_price}
+        {selectedPrice.price_type === "sale" && (
+          <span className="line-through ml-2 text-base font-normal text-gray-400">
+            {selectedPrice.original_price}
+          </span>
+        )}
       </span>
       {selectedPrice.price_type === "sale" && (
-        <>
-          <p>
-            <span className="text-ui-fg-subtle">Original: </span>
-            <span className="line-through">{selectedPrice.original_price}</span>
-          </p>
-          <span className="text-ui-fg-interactive">
-            -{selectedPrice.percentage_diff}%
-          </span>
-        </>
+        <span className="text-[#8EB88E] text-sm">
+          Flat {selectedPrice.percentage_diff}% off on MRP
+        </span>
       )}
     </div>
   )
