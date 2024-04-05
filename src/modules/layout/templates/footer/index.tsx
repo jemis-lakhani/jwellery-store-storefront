@@ -27,7 +27,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h2 className='mt-5'><b className='-ml-3'>Follow Us</b></h2>
+          <h2 className='mt-5'><b className='ml-2'>Follow Us</b></h2>
           <ul className='pt-3'>
             <li>
               <a className='flex' href="\">
@@ -35,7 +35,7 @@ const Footer = () => {
                 <span className='ml-1 text-lg'>Instagram</span>
               </a>
             </li>
-            <li>
+            <li className='mt-1'>
               <a className='flex' href="\">
                 <Image src={facebook} alt="img" height={32}></Image>
                 <span className='text-lg ml-1'>Facebook</span>
