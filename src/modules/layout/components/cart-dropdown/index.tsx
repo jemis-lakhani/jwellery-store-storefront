@@ -12,6 +12,7 @@ import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "@modules/products/components/thumbnail"
+import { ShoppingCart } from "@medusajs/icons"
 
 const CartDropdown = ({
   cart: cartState,
@@ -79,10 +80,13 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="flex gap-1 hover:text-ui-fg-base"
             href="/cart"
             data-testid="cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            <ShoppingCart />
+            {`${totalItems}`}
+          </LocalizedClientLink>
         </Popover.Button>
         <Transition
           show={cartDropdownOpen}
@@ -133,8 +137,17 @@ const CartDropdown = ({
                                     {item.title}
                                   </LocalizedClientLink>
                                 </h3>
-                                <LineItemOptions variant={item.variant} data-testid="cart-item-variant" data-value={item.variant} />
-                                <span data-testid="cart-item-quantity" data-value={item.quantity}>Quantity: {item.quantity}</span>
+                                <LineItemOptions
+                                  variant={item.variant}
+                                  data-testid="cart-item-variant"
+                                  data-value={item.variant}
+                                />
+                                <span
+                                  data-testid="cart-item-quantity"
+                                  data-value={item.quantity}
+                                >
+                                  Quantity: {item.quantity}
+                                </span>
                               </div>
                               <div className="flex justify-end">
                                 <LineItemPrice
@@ -145,7 +158,11 @@ const CartDropdown = ({
                               </div>
                             </div>
                           </div>
-                          <DeleteButton id={item.id} className="mt-1" data-testid="cart-item-remove-button">
+                          <DeleteButton
+                            id={item.id}
+                            className="mt-1"
+                            data-testid="cart-item-remove-button"
+                          >
                             Remove
                           </DeleteButton>
                         </div>
@@ -158,7 +175,10 @@ const CartDropdown = ({
                       Subtotal{" "}
                       <span className="font-normal">(excl. taxes)</span>
                     </span>
-                    <span className="text-large-semi" data-testid="cart-subtotal">
+                    <span
+                      className="text-large-semi"
+                      data-testid="cart-subtotal"
+                    >
                       {formatAmount({
                         amount: cartState.subtotal || 0,
                         region: cartState.region,
@@ -167,7 +187,11 @@ const CartDropdown = ({
                     </span>
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
-                    <Button className="w-full" size="large" data-testid="go-to-cart-button">
+                    <Button
+                      className="w-full"
+                      size="large"
+                      data-testid="go-to-cart-button"
+                    >
                       Go to cart
                     </Button>
                   </LocalizedClientLink>
