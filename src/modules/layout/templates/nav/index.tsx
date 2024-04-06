@@ -38,7 +38,7 @@ export default async function Nav() {
             </LocalizedClientLink>
             <LocalizedClientLink
               className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
-              href="/account"
+              href="/collections/rings"
               data-testid="nav-account-link"
             >
               Rings
