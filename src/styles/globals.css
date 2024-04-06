@@ -172,3 +172,7 @@
 .main-header:hover::after {
   width: 100%;
 }
+
+.alice-carousel__stage-item {
+  width: 100% !important;
+}

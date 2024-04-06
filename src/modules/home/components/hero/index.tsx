@@ -46,6 +46,7 @@ const Hero = () => {
           />
         </div>
       </div>
+
       <Container className="relative gap-y-10 py-10 px-4 small:max-w-screen-small medium:max-w-screen-medium grid grid-cols-3 small:grid-cols-5 small:mx-auto small:gap-4 small:px-10 small:py-24 rounded-none shadow-none">
         <div className="flex flex-col gap-3 items-center justify-center">
           <Image
@@ -97,6 +98,7 @@ const Hero = () => {
           <span className="uppercase text-xs leading-none">necklace</span>
         </div>
       </Container>
+
       <Container className="relative p-0 mx-auto my-10 small:max-w-screen-small medium:max-w-screen-medium rounded-none shadow-none">
         <div className="flex flex-wrap gap-6 small:gap-0 w-10/12 mx-auto">
           <div className="flex justify-center h-full w-full small:w-8/12">

@@ -1,50 +1,152 @@
-import React from 'react';
-import instagram from '../../../../../public/instagram.svg'
-import facebook from '../../../../../public/facebook.svg'
-import Image from 'next/image';
+"use client"
+
+import React from "react"
+import instagram from "../../../../../public/instagram.svg"
+import facebook from "../../../../../public/facebook.svg"
+import whatsapp from "../../../../../public/whatsapp.svg"
+import Image from "next/image"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Accordion from "@modules/products/components/product-tabs/accordion"
+
+const footerTabs = {
+  Explore: ["New Collection", "Rings", "Bracelets", "Necklaces", "Earrings"],
+  "Contact Us": ["Customer Care", "Email", "WhatsApp"],
+  "Quick Links": ["Home", "Category", "About Us", "Customer Reviews", "FAQ"],
+  "Follow Us": ["Instagram", "Facebook", "WhatsApp"],
+}
 
 const Footer = () => {
   return (
-    <footer>
-      <hr />
-      <div className='flex justify-around bg-red-100 text-base font-serif'>
-        <div>
-          <h2 className='mt-5'><b className='-ml-3'>Contact Us</b></h2>
-          <ul className='pt-3 list-disc'>
-            <a href="\"><li>Customer Care</li></a>
-            <a href="\"><li>WhatsApp</li></a>
-            <a href="\"><li>Email</li></a>
-          </ul>
+    <footer className="bg-background">
+      <div className="container hidden small:flex justify-around mx-auto max-w-screen-medium text-base p-8">
+        <div className="p-4">
+          <h2 className="text-base text-gray-800 font-semibold mb-3">
+            Explore
+          </h2>
+          <div className="flex flex-col gap-3 text-sm">
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              New Collection
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Rings
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Bracelets
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Necklaces
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Earring
+            </a>
+          </div>
         </div>
-        <div>
-          <h2 className='mt-5'><b className='-ml-3'>Quick Links</b></h2>
-          <ul className='pt-3 list-disc pb-8'>
-            <a href="\"><li>Home</li></a>
-            <a href="\"><li>Category</li></a>
-            <a href="\"><li>About Us</li></a>
-            <a href="\"><li>Customer Reviews</li></a>
-            <a href="\"><li>FAQ</li></a>
-          </ul>
+        <div className="p-4">
+          <h2 className="text-base font-semibold mb-3 text-gray-800">
+            Contact Us
+          </h2>
+          <div className="flex flex-col gap-3 text-sm">
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Customer Care
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Email
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              WhatsApp
+            </a>
+          </div>
         </div>
-        <div>
-          <h2 className='mt-5'><b className='ml-2'>Follow Us</b></h2>
-          <ul className='pt-3'>
-            <li>
-              <a className='flex' href="\">
-                <Image src={instagram} alt="img" height={32}></Image>
-                <span className='ml-1 text-lg'>Instagram</span>
-              </a>
-            </li>
-            <li className='mt-1'>
-              <a className='flex' href="\">
-                <Image src={facebook} alt="img" height={32}></Image>
-                <span className='text-lg ml-1'>Facebook</span>
-              </a>
-            </li>
-          </ul>
+        <div className="p-4">
+          <h2 className="text-base font-semibold mb-3 text-gray-800">
+            Quick Links
+          </h2>
+          <div className="flex flex-col gap-3 text-sm">
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Home
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Category
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              About Us
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              Customer Reviews
+            </a>
+            <a className="leading-none tracking-normal text-gray-600" href="\">
+              FAQ
+            </a>
+          </div>
+        </div>
+        <div className="p-4">
+          <h2 className="text-base font-semibold mb-3 text-gray-800">
+            Follow Us
+          </h2>
+          <div className="flex flex-col gap-3 text-sm">
+            <LocalizedClientLink
+              href="/"
+              className="flex items-center text-sm gap-2 text-gray-600"
+            >
+              <Image
+                src={instagram}
+                alt="instagram"
+                height={20}
+                width={20}
+              ></Image>
+              <span className="leading-none tracking-normal">Instagram</span>
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href="/"
+              className="flex items-center text-sm gap-2 text-gray-600"
+            >
+              <Image
+                src={facebook}
+                alt="facebook"
+                height={20}
+                width={20}
+              ></Image>
+              <span className="leading-none tracking-normal">Facebook</span>
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href="/"
+              className="flex items-center text-sm gap-2 text-gray-600"
+            >
+              <Image
+                src={whatsapp}
+                alt="whatsapp"
+                height={20}
+                width={20}
+              ></Image>
+              <span className="leading-none tracking-normal">Whatsapp</span>
+            </LocalizedClientLink>
+          </div>
         </div>
       </div>
-      <div className="txt-compact-small text-black h-8 bg-red-200 text-center flex justify-center items-center">
+      <div className="flex flex-col small:hidden p-6">
+        {Object.entries(footerTabs).map(([key, tabs]) => {
+          return (
+            <Accordion type="multiple" style={{ width: "100%" }}>
+              <Accordion.Item
+                key={key}
+                title={key}
+                value={key}
+                className="w-full border-t-0 text-gray-800"
+                titleClass="text-base text-black font-semibold"
+                contentClass="flex flex-col gap-3 leading-none tracking-normal text-sm mt-3"
+              >
+                {tabs.map((item, index) => (
+                  <span key={item + index} className="text-gray-600">
+                    {item}
+                  </span>
+                ))}
+              </Accordion.Item>
+            </Accordion>
+          )
+        })}
+      </div>
+
+      <div className="flex justify-center items-center text-sm text-black font-semibold leading-10 text-center">
         <span>
           © {new Date().getFullYear()} Evara Jwellary Store. All rights reserved
         </span>
@@ -53,4 +155,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;
+export default Footer
