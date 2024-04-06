@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "react-alice-carousel/lib/alice-carousel.css";
 
 @layer utilities {
   /* Chrome, Safari and Opera */
@@ -51,7 +52,7 @@
 
 @layer base {
   :root {
-    --background: 0, 23%, 64%;
+    --background: 0, 43%, 82%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -156,4 +157,18 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+}
+
+.main-header::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.2s ease;
+  transform-origin: center;
+}
+
+.main-header:hover::after {
+  width: 100%;
 }

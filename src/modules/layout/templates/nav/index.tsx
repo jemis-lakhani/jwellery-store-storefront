@@ -10,26 +10,64 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
+      <header className="relative h-16 mx-auto duration-200 bg-neutral-50">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
+          <div className="basis-0 h-full small:hidden flex items-center">
             <div className="h-full">
               <SideMenu regions={regions} />
             </div>
           </div>
 
-          <div className="flex items-center h-full">
+          <div className="flex flex-1 small:flex-none items-center justify-center small:justify-start h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="text-gray-800 text-2xl font-semibold hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              EVARA
             </LocalizedClientLink>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
+          <div className="hidden small:flex items-center justify-center gap-10 flex-1">
+            <LocalizedClientLink
+              className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              New
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              Rings
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              Earrings
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              Bracelet
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              className="hover:text-black font-medium tracking-normal uppercase text-sm leading-none text-gray-600 main-header"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              Necklace
+            </LocalizedClientLink>
+          </div>
+
+          <div className="flex items-center gap-x-6 h-full justify-end">
+            {/* <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base"
@@ -47,7 +85,7 @@ export default async function Nav() {
               >
                 Account
               </LocalizedClientLink>
-            </div>
+            </div> */}
             <Suspense
               fallback={
                 <LocalizedClientLink
