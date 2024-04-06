@@ -5,7 +5,6 @@ import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import Back from "@modules/common/icons/back"
 import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
-
 import Accordion from "./accordion"
 
 type ProductTabsProps = {
@@ -25,7 +24,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
   ]
 
   return (
-    <div className="lg:max-w-[500px] w-full mx-auto">
+    <div className="w-full mx-auto medium:w-10/12">
       <Accordion type="multiple">
         {tabs.map((tab, i) => (
           <Accordion.Item

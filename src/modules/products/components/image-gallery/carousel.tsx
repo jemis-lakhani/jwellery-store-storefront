@@ -29,7 +29,7 @@ const CustomCarousel = ({ images }: ImageGalleryProps) => {
         role="presentation"
         key={image.id}
         className={clsx(
-          "brelative aspect-[29/34] w-full small:max-h-[400px] overflow-hidden hover:cursor-grab bg-ui-bg-subtle rounded-none",
+          "relative aspect-[29/34] w-full max-h-[300px] xsmall:max-h-[470px] overflow-hidden hover:cursor-grab bg-ui-bg-subtle rounded-none",
           {
             "hover:cursor-grabbing": isDragging,
           }
@@ -42,7 +42,6 @@ const CustomCarousel = ({ images }: ImageGalleryProps) => {
           className="absolute inset-0 rounded-none"
           alt={`Product image ${index + 1}`}
           fill
-          sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
           style={{
             objectFit: "cover",
           }}

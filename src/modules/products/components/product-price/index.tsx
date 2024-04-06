@@ -32,7 +32,7 @@ export default function ProductPrice({
     <div className="flex flex-col text-ui-fg-base gap-1">
       <span
         className={clx("text-xl", {
-          "text-background font-semibold": selectedPrice.price_type === "sale",
+          "font-semibold": selectedPrice.price_type === "sale",
         })}
       >
         {selectedPrice.calculated_price}
@@ -43,7 +43,7 @@ export default function ProductPrice({
         )}
       </span>
       {selectedPrice.price_type === "sale" && (
-        <span className="text-[#8EB88E] text-sm">
+        <span className="text-[#f43f5e] text-sm font-semibold">
           Flat {selectedPrice.percentage_diff}% off on MRP
         </span>
       )}
